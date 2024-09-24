@@ -223,8 +223,8 @@ struct DrawingApp: View {
 //}
 
 
-struct DrawingApp_Previews: PreviewProvider {
-    static var previews: some View {
-        DrawingApp()
-    }
-}
+//struct DrawingApp_Previews: PreviewProvider {
+//    static var previews: some View {
+//        DrawingApp()
+//    }
+//}

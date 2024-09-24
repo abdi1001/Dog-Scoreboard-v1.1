@@ -48,6 +48,7 @@ struct EventListView: View {
                         }
                     }
                 }
+                .navigationBarBackButtonHidden(true)
                 .navigationTitle("All Event")
                 .toolbar {
                     ToolbarItem(placement: .topBarTrailing) {

@@ -169,18 +169,18 @@ struct EvaluationForm: View {
                             eventData.deleteCurrentEvaluation()
                             navigationStateManager.goToCurrentEventDogs(event: eventData.currentEvent)
                         }
-                        Button(action: {
-  
-   
-                            navigationStateManager.goToCurrentEventDogs(event: eventData.events[eventData.currentEventIndex])
-                        }) {
-                            Text("Save")
-                                .foregroundColor(.white)
-                                .padding()
-                                .frame(maxWidth: .infinity)
-                                .background(Color.blue)
-                                .cornerRadius(10)
-                        }
+//                        Button(action: {
+//  
+//   
+//                            navigationStateManager.goToCurrentEventDogs(event: eventData.events[eventData.currentEventIndex])
+//                        }) {
+//                            Text("Save")
+//                                .foregroundColor(.white)
+//                                .padding()
+//                                .frame(maxWidth: .infinity)
+//                                .background(Color.blue)
+//                                .cornerRadius(10)
+//                        }
                     }
                     .padding(.horizontal)
                 }

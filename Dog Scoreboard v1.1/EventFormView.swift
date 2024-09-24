@@ -56,8 +56,19 @@ struct EventFormView: View {
                 .disabled(eventData.events[eventData.currentEventIndex].eventName.isEmpty)  // Disable if event name is blank
                 
                 Button(action: {
-                    eventData.events.remove(at: eventData.currentEventIndex)
-                    navigationStateManager.popToRoot()
+                    if eventData.events.indices.contains(eventData.currentEventIndex) {
+                        // Remove the event at the current index
+                        eventData.events.remove(at: eventData.currentEventIndex)
+                        
+                        // Adjust the currentEventIndex after deletion
+                        if eventData.events.isEmpty {
+                            eventData.currentEventIndex = 0  // Handle the case where there are no events left
+                        } else {
+                            eventData.currentEventIndex = max(0, eventData.currentEventIndex - 1)  // Move to the previous valid index
+                        }
+                        
+                        navigationStateManager.popToRoot()
+                    }
                 }) {
                     Text("Delete Event")
                         .foregroundColor(.white)

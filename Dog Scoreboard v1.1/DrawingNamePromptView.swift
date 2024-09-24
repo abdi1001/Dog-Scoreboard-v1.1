@@ -60,6 +60,7 @@ struct DrawingNamePromptView: View {
                 .padding(.horizontal)
             }
         }
+        .navigationBarBackButtonHidden(true)
         .padding()
         .frame(maxWidth: 300)
     }

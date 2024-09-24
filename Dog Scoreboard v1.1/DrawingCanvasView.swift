@@ -52,7 +52,11 @@ struct DrawingCanvasView: View {
                         currentPath.addLine(to: point)
                     }
                 }
+                if eventData.isValidDrawingIndex() {
+                    
+              
                 context.stroke(currentPath, with: .color(eventData.events[eventData.currentEventIndex].dogEvaluations[eventData.currentDogIndex].drawings[eventData.currentDrawingIndex].selectedColor), lineWidth: eventData.events[eventData.currentEventIndex].dogEvaluations[eventData.currentDogIndex].drawings[eventData.currentDrawingIndex].brushThickness)
+                }
             }
             .gesture(
                 DragGesture(minimumDistance: 0)
@@ -71,6 +75,9 @@ struct DrawingCanvasView: View {
 
             // Tool controls: Color picker and brush thickness
             HStack {
+                if eventData.isValidDrawingIndex() {
+                    
+          
                 ColorPicker("Select Color", selection: $eventData.events[eventData.currentEventIndex].dogEvaluations[eventData.currentDogIndex].drawings[eventData.currentDrawingIndex].selectedColor)
                     .padding()
 
@@ -78,6 +85,9 @@ struct DrawingCanvasView: View {
                     Text("Brush Thickness: \(Int(eventData.events[eventData.currentEventIndex].dogEvaluations[eventData.currentDogIndex].drawings[eventData.currentDrawingIndex].brushThickness))")
                     Slider(value: $eventData.events[eventData.currentEventIndex].dogEvaluations[eventData.currentDogIndex].drawings[eventData.currentDrawingIndex].brushThickness, in: 1...20, step: 1)
                         .padding()
+                }
+                } else {
+                    Text("No drawing selected")
                 }
             }
             
@@ -113,6 +123,7 @@ struct DrawingCanvasView: View {
                         //eventData.saveEvent()
                         navigationStateManager.createDogDrawings(index: eventData.currentDogIndex, drawings: eventData.events[eventData.currentEventIndex].dogEvaluations[eventData.currentDogIndex].drawings)
                     }
+                    
                 }
 
                 
